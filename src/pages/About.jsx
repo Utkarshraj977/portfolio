@@ -1,26 +1,31 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from 'react';
+import { motion } from 'framer-motion';
+import ProfileCard from '../components/ProfileCard';      // Import the left column
+import AboutNarrative from '../components/AboutNarrative'; // Import the right column
 
-export default function About(){
+export default function About() {
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className='space-y-4'>
-      <h2 className='text-2xl font-bold'>About</h2>
-      <p className='text-gray-600'>Short intro about you. Education, experience, and what you enjoy building.</p>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        <div className='p-4 bg-white rounded shadow-sm'>
-          <h3 className='font-semibold'>Skills</h3>
-          <ul className='list-disc ml-5 text-sm text-gray-700 mt-2'>
-            <li>React</li>
-            <li>Tailwind CSS</li>
-            <li>JavaScript (ES6+)</li>
-            <li>UI/UX fundamentals</li>
-          </ul>
+    <section id="about" className='py-20 bg-gray-900 text-white min-h-screen'>
+      <div className='max-w-7xl mx-auto px-6'>
+        
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h2 className='text-4xl md:text-5xl font-extrabold tracking-tight mb-4'>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Me</span>
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto text-lg">
+            A brief look into my journey, skills, and professional philosophy.
+          </p>
         </div>
-        <div className='p-4 bg-white rounded shadow-sm'>
-          <h3 className='font-semibold'>Tools</h3>
-          <p className='text-sm text-gray-700'>Figma, VS Code, Git, Vite, Chrome DevTools</p>
+
+        {/* Main Content Grid (Combining the two components) */}
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
+          
+          <ProfileCard />
+          <AboutNarrative />
+          
         </div>
       </div>
-    </motion.div>
-  )
+    </section>
+  );
 }
