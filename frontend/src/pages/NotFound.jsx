@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaHome, FaAngleDoubleRight } from 'react-icons/fa';
-import GameCanvas from '../components/GameCanvas';
-import CricketGame from '../components/CricketGame'; // Import the new game
+import GameCanvas from '../components/NotFound/GameCanvas';
 
 export default function NotFound() {
   const [isCricketMode, setIsCricketMode] = useState(false);
 
-  if (isCricketMode) {
-    return <CricketGame onExit={() => setIsCricketMode(false)} />;
-  }
+
 
   return (
     <section id="not-found" className='min-h-screen flex items-center justify-center bg-gray-900 text-white relative overflow-hidden px-6'>

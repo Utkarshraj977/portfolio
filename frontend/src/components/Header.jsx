@@ -31,6 +31,7 @@ export default function Header() {
               <NavItem to="/about">About</NavItem>
               <NavItem to="/projects">Projects</NavItem>
               <NavItem to="/blogs">Blogs</NavItem>
+              <NavItem to="/dailywork">Daily Progress</NavItem>
             </div>
 
             {/* Contact Me Button (Right) */}
@@ -67,6 +68,7 @@ export default function Header() {
               <NavItem to="/about" onClick={closeMenu}>About</NavItem>
               <NavItem to="/projects" onClick={closeMenu}>Projects</NavItem>
               <NavItem to="/blogs" onClick={closeMenu}>Blogs</NavItem>
+              <NavItem to="/dailywork" onClick={closeMenu}>Daily Progress</NavItem>
             </div>
             
             <div className="px-4 py-6 border-t border-gray-700 mt-4">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ProfileCard from '../components/ProfileCard';      // Import the left column
-import AboutNarrative from '../components/AboutNarrative'; // Import the right column
+import ProfileCard from '../components/About/ProfileCard';      // Import the left column
+import AboutNarrative from '../components/About/AboutNarrative'; // Import the right column
 
 export default function About() {
   return (

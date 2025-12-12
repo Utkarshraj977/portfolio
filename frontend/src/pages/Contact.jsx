@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import InputField from '../components/InputField'; // Assuming InputField.jsx is in your 'components' folder
+import InputField from '../components/Contact/InputField'; // Assuming InputField.jsx is in your 'components' folder
 import { FaPaperPlane } from 'react-icons/fa';
 
 export default function Contact() {

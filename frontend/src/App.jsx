@@ -8,6 +8,9 @@ import ProjectDetails from './pages/ProjectDetails'
 import Skills from './pages/Skills'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import FAQs from './pages/FAQs'
+import ComingSoon from './pages/ComingSoon'
+import DailyWork from './pages/DailyWork'
 
 function App(){
   return (
@@ -20,6 +23,9 @@ function App(){
         <Route path='/skills' element={<Skills/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='*' element={<NotFound/>} />
+        <Route path='/faq' element={<FAQs/>} />
+        <Route path='/commingsoon' element={<ComingSoon/>} />
+        <Route path='/dailywork' element={<DailyWork/>}/>
       </Routes>
     </Layout>
   )

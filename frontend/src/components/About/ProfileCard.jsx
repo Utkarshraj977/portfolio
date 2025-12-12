@@ -24,7 +24,7 @@ export default function ProfileCard() {
             
             <div className='text-center space-y-4 w-full'>
                 <StatItem icon={<FaLaptopCode />} title="Experience" value="1+ Years" color="text-blue-400" />
-                <StatItem icon={<FaHandsHelping />} title="Projects Completed" value="10+ Full Stack" color="text-purple-400" />
+                <StatItem icon={<FaHandsHelping />} title="Projects Completed" value="5+ Full Stack" color="text-purple-400" />
                 <StatItem icon={<FaGraduationCap />} title="Stack Focus" value="MERN & AI/n8n" color="text-green-400" />
             </div>
         </motion.div>

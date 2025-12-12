@@ -1,20 +1,29 @@
 import React from "react";
 import { FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaPython } from "react-icons/fa";
-import { SiTailwindcss, SiMongodb, SiJavascript, SiTypescript, SiNextdotjs, SiRedux } from "react-icons/si";
+import { SiTailwindcss, SiMongodb, SiJavascript, SiTypescript, SiNextdotjs, SiRedux,SiC} from "react-icons/si";
+import { VscSymbolClass,VscSettingsGear  } from "react-icons/vsc";
+import { FaJava } from "react-icons/fa";
 
 const skills = [
   { name: "React", icon: <FaReact className="text-cyan-400" size={40} />, level: 90 },
-  { name: "Next.js", icon: <SiNextdotjs className="text-white" size={40} />, level: 85 },
-  { name: "TypeScript", icon: <SiTypescript className="text-blue-500" size={40} />, level: 80 },
+  { name: "Express", icon: <SiNextdotjs className="text-white" size={40} />, level: 85 },
+  { name: "BootStrap", icon: <SiTypescript className="text-blue-500" size={40} />, level: 80 },
   { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" size={40} />, level: 95 },
   { name: "HTML5", icon: <FaHtml5 className="text-orange-500" size={40} />, level: 98 },
   { name: "CSS3", icon: <FaCss3Alt className="text-blue-600" size={40} />, level: 95 },
   { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" size={40} />, level: 92 },
   { name: "Node.js", icon: <FaNodeJs className="text-green-500" size={40} />, level: 75 },
   { name: "MongoDB", icon: <SiMongodb className="text-green-400" size={40} />, level: 70 },
-  { name: "Redux", icon: <SiRedux className="text-purple-500" size={40} />, level: 80 },
+  { name: "Material UI", icon: <SiRedux className="text-purple-500" size={40} />, level: 80 },
   { name: "Git", icon: <FaGitAlt className="text-red-500" size={40} />, level: 85 },
-  { name: "Python", icon: <FaPython className="text-yellow-300" size={40} />, level: 60 },
+  { name: "Python", icon: <FaPython className="text-yellow-300" size={40} />, level: 90 },
+  { name: "Java", icon: <FaJava className="text-red-600 text-5xl" />
+, level: 90 },
+  { name: "C", icon: <SiC className="text-blue-500 text-4xl" />, level: 90 },
+  { name: "Operating System", icon: <VscSettingsGear className="text-gray-600 text-4xl" />
+, level: 90 },
+  { name: "OOPS", icon: <VscSymbolClass className="text-purple-500 text-4xl" />
+, level: 90 },
 ];
 
 export default function SkillCard() {
