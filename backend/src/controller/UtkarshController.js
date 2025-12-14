@@ -29,12 +29,27 @@ exports.adminLogin = async (req, res) => {
     });
 
     // 5. Set the HTTP-only cookie (This is the "remember me" functionality)
+    // Example in your Login Controller (on the backend)
+
+    // 1. Define base options
     const options = {
         expires: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000), // 10 days
         httpOnly: true,
-        secure: false,          // MUST be false on localhost
-        sameSite: "lax",        // ⭐ REQUIRED
     };
+
+    // 2. Adjust settings based on the environment
+    if (process.env.NODE_ENV === 'production') {
+        // These are required for cross-site communication (Netlify -> Render)
+        options.secure = true;
+        options.sameSite = 'none'; // Critical change for cross-site
+
+        // OPTIONAL: May help explicitly define the domain, but usually not needed.
+        // options.domain = '.onrender.com';
+    } else {
+        // Keep these for local development (http://localhost)
+        options.secure = false;
+        options.sameSite = 'lax'; // Best for security on same-site non-https local
+    }
 
     res.status(200)
         .cookie('token', token, options)
