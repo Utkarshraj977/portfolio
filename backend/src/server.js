@@ -6,11 +6,13 @@ import cors from "cors"; // Installed CORS
 import UtkarshRoutes from "./routes/UtkarshRoutes.js";
 import DayLogRoutes from "./routes/DayLogRoutes.js";
 
+
 dotenv.config();
 
 connectDB();
 
 const app = express();
+app.set("trust proxy", 1);
 
 // Use CORS middleware
 app.use(cors({
