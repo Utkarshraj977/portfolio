@@ -14,7 +14,7 @@ const app = express();
 
 // Use CORS middleware
 app.use(cors({
-  origin: "https://utkarshportfolionew.netlify.app/", // exact frontend URL
+  origin: "https://utkarshportfolionew.netlify.app", // exact frontend URL
   credentials: true,
 }));
 
