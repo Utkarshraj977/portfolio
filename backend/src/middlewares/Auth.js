@@ -4,9 +4,10 @@ const Utkarsh = require('../models/Utkarsh');
 
 exports.protect = async (req, res, next) => {
     let token;
+    console.log("COOKIES:", req.cookies.token);
     if (req.cookies.token) {
         token = req.cookies.token;
-        console.log("COOKIES:", req.cookies.token);
+        
     }
     if (!token) {
         return res.status(401).json({ success: false, message: 'I think you are not utkarsh raj(Portfolio Admin).' });
