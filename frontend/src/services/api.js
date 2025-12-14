@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+const API_BASE_URL = 'https://my-portfolio-api-euq5.onrender.com/api/v1';
 
 // Create an Axios instance
 const api = axios.create({
