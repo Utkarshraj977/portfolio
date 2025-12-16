@@ -2,10 +2,12 @@ const DayLog = require('../models/Daylog');
 const asyncHandler = require('express-async-handler');
 
 // Helper function to get today's date in YYYY-MM-DD format
-const getTodayDateString = () => {
+const getTodayDateStringUTC = () => {
     const now = new Date();
-    return now.toISOString().slice(0, 10);
+    const date = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+    return date.toISOString().slice(0, 10);
 };
+
 
 exports.getDailyLogs = asyncHandler(async (req, res) => {
     const limit = parseInt(req.query.limit) || 6;
@@ -28,7 +30,7 @@ exports.getDailyLogs = asyncHandler(async (req, res) => {
 
 exports.createTask = asyncHandler(async (req, res) => {
     const { title } = req.body; 
-    const todayDateString = getTodayDateString(); 
+    const todayDateString =getTodayDateStringUTC(); 
 
     if (!title) {
         res.status(400);
