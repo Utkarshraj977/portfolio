@@ -32,7 +32,7 @@ exports.adminLogin = async (req, res) => {
       maxAge: 10 * 24 * 60 * 60 * 1000,
       httpOnly: true,
       secure: true,
-      sameSite: 'lax',
+      sameSite: 'none',
     })
     .json({ success: true, message: 'Login successful.' });
 };
