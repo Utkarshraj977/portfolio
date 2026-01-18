@@ -1,18 +1,17 @@
-const DayLog = require('../models/Daylog');
-const asyncHandler = require('express-async-handler');
+import DayLog from '../models/Daylog.js'
+import asyncHandler from 'express-async-handler'
 
 // Helper function to get today's date in YYYY-MM-DD format
 const getTodayDateString = () => {
     // This returns the date based on server time. 
     // Ensure TZ=Asia/Kolkata is set in Render Env Variables.
     return new Date().toLocaleDateString('en-CA'); // Returns YYYY-MM-DD
-};;
+};
 
 
-exports.getDailyLogs = asyncHandler(async (req, res) => {
-    const limit = parseInt(req.query.limit) || 6;
-    const skip = parseInt(req.query.skip) || 0;
-
+const getDailyLogs = asyncHandler(async (req, res) => {
+    const limit = parseInt(req.query.limit) ;
+    const skip = parseInt(req.query.skip);
     const logs = await DayLog.find({})
         .sort({ dateString: -1 })
         .limit(limit)
@@ -28,7 +27,7 @@ exports.getDailyLogs = asyncHandler(async (req, res) => {
     });
 });
 
-exports.createTask = asyncHandler(async (req, res) => {
+const createTask = asyncHandler(async (req, res) => {
     const { title } = req.body; 
     const todayDateString =getTodayDateString(); 
 
@@ -57,7 +56,7 @@ exports.createTask = asyncHandler(async (req, res) => {
 });
 
 // @route   PATCH /api/v1/worklog/task/:dayId/:taskId
-exports.updateTaskProgress = asyncHandler(async (req, res) => {
+const updateTaskProgress = asyncHandler(async (req, res) => {
     const { progress } = req.body;
     const { dayId, taskId } = req.params;
 
@@ -103,3 +102,5 @@ exports.updateTaskProgress = asyncHandler(async (req, res) => {
 
     res.status(200).json({ success: true, data: dayLog });
 });
+
+export {getDailyLogs,updateTaskProgress,createTask}

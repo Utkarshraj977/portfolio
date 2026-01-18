@@ -1,8 +1,8 @@
-const jwt = require('jsonwebtoken');
-const Utkarsh = require('../models/Utkarsh'); 
 
+import jwt from 'jsonwebtoken'
+import Utkarsh from '../models/Utkarsh.js';
 
-exports.protect = async (req, res, next) => {
+const protect = async (req, res, next) => {
     let token;
     console.log("COOKIES:", req.cookies.token);
     if (req.cookies.token) {
@@ -22,3 +22,4 @@ exports.protect = async (req, res, next) => {
     }
 };
 
+export default protect;

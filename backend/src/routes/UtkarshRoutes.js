@@ -1,9 +1,13 @@
-const express = require('express');
+import express from 'express';
+import { registerAdmin, adminLogin } from '../controller/UtkarshController.js'; // Remember .js
+
 const router = express.Router();
-const { adminLogin,registerAdmin } = require('../controller/UtkarshController');
 
-// The login route for your password popup
-router.route('/login').post(adminLogin);
-router.route('/register-admin').post(registerAdmin);
+// Route: /api/v1/auth/login
+router.post('/login', adminLogin);
 
-module.exports = router;
+// Route: /api/v1/auth/register-admin
+router.post('/register-admin', registerAdmin);
+
+// EXPORT DEFAULT (ES6 Style)
+export default router;

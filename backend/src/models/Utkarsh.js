@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const UtkarshSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
@@ -7,15 +7,19 @@ const UtkarshSchema = new mongoose.Schema({
     role: { type: String, default: 'admin' },
 }, { timestamps: true });
 
-UtkarshSchema.pre('save', async function () {
-    if (!this.isModified('password')) return;
+// Hash password before saving
+UtkarshSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) {
+        return next();
+    }
     this.password = await bcrypt.hash(this.password, 10);
+    next();
 });
 
-
-
-UtkarshSchema.methods.comparePassword = function(candidatePassword, hashedPassword) {
-    return bcrypt.compare(candidatePassword, hashedPassword);
+// Compare password method
+// We only need 'enteredPassword'. 'this.password' is the hash from DB.
+UtkarshSchema.methods.comparePassword = async function(enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
 };
 
-module.exports = mongoose.model('Utkarsh', UtkarshSchema);
+export default mongoose.model('Utkarsh', UtkarshSchema);

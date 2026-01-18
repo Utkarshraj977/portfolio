@@ -11,6 +11,8 @@ import NotFound from './pages/NotFound'
 import FAQs from './pages/FAQs'
 import ComingSoon from './pages/ComingSoon'
 import DailyWork from './pages/DailyWork'
+import SixComponent from './pages/SixComponent'
+import PostFeed from './pages/PostFeed'
 
 function App(){
   return (
@@ -26,6 +28,8 @@ function App(){
         <Route path='/faq' element={<FAQs/>} />
         <Route path='/commingsoon' element={<ComingSoon/>} />
         <Route path='/dailywork' element={<DailyWork/>}/>
+        <Route path='/sixcomponent' element={<SixComponent/>} />
+        <Route path="/posts/:category" element={<PostFeed />} />
       </Routes>
     </Layout>
   )

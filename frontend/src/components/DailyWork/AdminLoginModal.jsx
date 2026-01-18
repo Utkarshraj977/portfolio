@@ -1,6 +1,6 @@
 // src/components/AdminLoginModal.jsx
 import React, { useState } from 'react';
-import { loginAdmin } from '../services/api';
+import { loginAdmin } from '../../services/api';
 
 export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
   const [password, setPassword] = useState('');

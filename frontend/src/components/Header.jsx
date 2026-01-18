@@ -30,7 +30,7 @@ export default function Header() {
               <NavItem to="/skills">Skills</NavItem>
               <NavItem to="/about">About</NavItem>
               <NavItem to="/projects">Projects</NavItem>
-              <NavItem to="/blogs">Blogs</NavItem>
+              <NavItem to="/sixcomponent">Posts</NavItem>
               <NavItem to="/dailywork">Daily Progress</NavItem>
             </div>
 
@@ -67,7 +67,7 @@ export default function Header() {
               <NavItem to="/skills" onClick={closeMenu}>Skills</NavItem>
               <NavItem to="/about" onClick={closeMenu}>About</NavItem>
               <NavItem to="/projects" onClick={closeMenu}>Projects</NavItem>
-              <NavItem to="/blogs" onClick={closeMenu}>Blogs</NavItem>
+              <NavItem to="/sixcomponent" onClick={closeMenu}>Posts</NavItem>
               <NavItem to="/dailywork" onClick={closeMenu}>Daily Progress</NavItem>
             </div>
             

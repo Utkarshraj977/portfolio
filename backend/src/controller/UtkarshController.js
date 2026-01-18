@@ -1,77 +1,79 @@
-// --- 2. The Login/Password Check Controller ---
-const jwt = require('jsonwebtoken');
-const Utkarsh = require('../models/Utkarsh');
-const asyncHandler = require('express-async-handler');
+import jwt from 'jsonwebtoken';
+import Utkarsh from '../models/Utkarsh.js'; // Don't forget .js extension
+import asyncHandler from 'express-async-handler';
 
-exports.adminLogin = async (req, res) => {
-  const { password } = req.body;
+// --- LOGIN ---
+const adminLogin = asyncHandler(async (req, res) => {
+    const { password } = req.body;
 
-  if (!password) {
-    return res.status(400).json({ success: false, message: 'Please enter a password.' });
-  }
+    if (!password) {
+        res.status(400);
+        throw new Error('Please enter a password.');
+    }
 
-  const utkarsh = await Utkarsh.findOne({ role: 'admin' }).select('+password');
-  if (!utkarsh) {
-    return res.status(404).json({ success: false, message: 'Admin user not found.' });
-  }
+    // We only need to check if an Admin exists (Since there is only one Utkarsh)
+    // We don't really need a username check if this is a personal portfolio
+    const utkarsh = await Utkarsh.findOne({ role: 'admin' }).select('+password');
 
-  const isMatch = await utkarsh.comparePassword(password, utkarsh.password);
-  if (!isMatch) {
-    return res.status(401).json({ success: false, message: 'Incorrect password.' });
-  }
+    if (!utkarsh) {
+        res.status(404);
+        throw new Error('Admin user not found.');
+    }
 
-  const token = jwt.sign(
-    { id: utkarsh._id },
-    process.env.JWT_SECRET,
-    { expiresIn: '10d' }
-  );
+    // Updated logic: We only pass the plain password
+    const isMatch = await utkarsh.comparePassword(password);
 
-  res
-    .status(200)
-    .cookie('token', token, {
-      maxAge: 10 * 24 * 60 * 60 * 1000,
-      httpOnly: true,
-      secure: true,
-      sameSite: 'none',
-    })
-    .json({ success: true, message: 'Login successful.' });
-};
+    if (!isMatch) {
+        res.status(401);
+        throw new Error('Incorrect password.');
+    }
 
+    const token = jwt.sign(
+        { id: utkarsh._id },
+        process.env.JWT_SECRET,
+        { expiresIn: '10d' }
+    );
 
-exports.registerAdmin = asyncHandler(async (req, res) => {
+    res.status(200)
+        .cookie('token', token, {
+            maxAge: 10 * 24 * 60 * 60 * 1000,
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', // True only in production
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Fix for localhost
+        })
+        .json({ success: true, message: 'Welcome back, Utkarsh!' });
+});
+
+// --- REGISTER (Run once via Postman then disable/comment out) ---
+const registerAdmin = asyncHandler(async (req, res) => {
     const { username, password } = req.body;
 
     if (!username || !password) {
         res.status(400);
-        throw new Error('Username and password are required for setup.');
+        throw new Error('Username and password are required.');
     }
 
-    // Check if an admin already exists (we only want one)
     const adminExists = await Utkarsh.findOne({ role: 'admin' });
     if (adminExists) {
         res.status(403);
-        throw new Error('Admin user already exists. Cannot create another.');
+        throw new Error('Admin already exists.');
     }
 
-    // The password hashing logic is handled automatically by the pre-save hook in the Utkarsh model!
     const utkarsh = await Utkarsh.create({
         username,
-        password, // Password is automatically hashed and salted by Mongoose middleware
+        password,
         role: 'admin',
     });
 
     if (utkarsh) {
         res.status(201).json({
             success: true,
-            message: 'Admin user created successfully.',
-            user: {
-                id: utkarsh._id,
-                username: utkarsh.username,
-            },
+            message: 'Admin created successfully.',
         });
     } else {
         res.status(400);
-        throw new Error('Invalid user data provided.');
+        throw new Error('Invalid user data.');
     }
 });
 
+export { registerAdmin, adminLogin };

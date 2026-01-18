@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors"; // Installed CORS
 import UtkarshRoutes from "./routes/UtkarshRoutes.js";
 import DayLogRoutes from "./routes/DayLogRoutes.js";
+import PostRoutes from "./routes/PostRoutes.js";
 
 
 dotenv.config();
@@ -16,7 +17,7 @@ app.set("trust proxy", 1);
 
 // Use CORS middleware
 app.use(cors({
-  origin: "https://portfolio-c7t1.onrender.com", // exact frontend URL
+  origin:["https://portfolio-c7t1.onrender.com", "http://localhost:3000"],
   credentials: true,
 }));
 
@@ -29,6 +30,8 @@ app.get("/api/v1", (req, res) => {
 
 app.use('/api/v1/auth', UtkarshRoutes);
 app.use('/api/v1/worklog', DayLogRoutes);
+app.use('/api/v1/post',PostRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 const HOST = '0.0.0.0';
