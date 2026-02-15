@@ -27,7 +27,7 @@ function App(){
         <Route path='*' element={<NotFound/>} />
         <Route path='/faq' element={<FAQs/>} />
         <Route path='/commingsoon' element={<ComingSoon/>} />
-        <Route path='/dailywork' element={<DailyWork/>}/>
+        {/* <Route path='/dailywork' element={<DailyWork/>}/> */}
         <Route path='/sixcomponent' element={<SixComponent/>} />
         <Route path="/posts/:category" element={<PostFeed />} />
       </Routes>
