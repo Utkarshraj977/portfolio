@@ -10,10 +10,12 @@ export const projects = [
   {
   id: '1',
   title: 'collabX',
-  description: 'Developed a full-stack real-time collaboration platform that enables teams to communicate, manage tasks, and conduct video meetings within structured workspaces and channels. The system integrates live chat, task tracking, GitHub panels, and WebRTC-based video conferencing to provide a unified collaboration environment.
+description: `Developed a full-stack real-time collaboration platform that enables teams to communicate, manage tasks, and conduct video meetings within structured workspaces and channels. The system integrates live chat, task tracking, GitHub panels, and WebRTC-based video conferencing to provide a unified collaboration environment.
+
 Implemented real-time messaging and event synchronization using Socket.IO with Redis as a message broker and scaling layer to support efficient multi-user communication. Designed the frontend using React and Tailwind CSS with Redux for centralized state management, ensuring predictable data flow and maintainable UI architecture.
-Built a peer-to-peer WebRTC meeting system using simple-peer for low-latency video streaming. Added role-based access control (admin, manager, member) and workspace navigation for structured team collaboration. Focused on scalable backend design, optimized performance, and clean modular architecture suitable for production-level deployment.',
-  image: collabX,
+
+Built a peer-to-peer WebRTC meeting system using simple-peer for low-latency video streaming. Added role-based access control (admin, manager, member) and workspace navigation for structured team collaboration. Focused on scalable backend design, optimized performance, and clean modular architecture suitable for production-level deployment.`,
+image: collabX,
   live_link: 'https://collabx-frontend-qt9d.onrender.com/',
   github: 'https://github.com/Utkarshraj977/collabX'
 },
