@@ -3,7 +3,7 @@ import chat_image from "/assets/chat-app.jpeg";
 import spotify from "/assets/spotify.png";
 import dice_game from "/assets/dice_game.png";
 import voice from "/assets/voice-assistant.png";
-import gramin-vikas-portal from "/assets/Gramin-vikas-portal.png";
+import graminvikasportal from "/assets/Gramin-vikas-portal.png";
 import collabX from "/assets/collabX.png";
 
 export const projects = [
@@ -21,7 +21,7 @@ Built a peer-to-peer WebRTC meeting system using simple-peer for low-latency vid
   id: '2',
   title: 'Gramin-Vikas-Portal',
   description: 'A full-stack web platform designed to support rural development by connecting citizens with essential government services. The portal allows users to access welfare schemes, submit service requests, and track application status in real time. It focuses on improving transparency, accessibility, and digital inclusion for rural communities through a clean and user-friendly interface.',
-  image: gramin-vikas-portal,
+  image: graminvikasportal,
   live_link: 'https://gramin-seva-portal-frontend.onrender.com/',
   github: 'https://github.com/Utkarshraj977/Gramin-seva-portal'
 },
