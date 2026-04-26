@@ -12,23 +12,30 @@ export default function Home() {
     >
       {/* 1. Background Decor (Glowing Blobs) */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-white-600/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
       </div>
 
       {/* Main Content Container */}
-      <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 pt-20">
-        
-        {/* 2. Text Section (Left) */}
-        <div className="flex flex-col items-center">
-          <Text/>
-          <Button/>
-          <SocialLinks/>
-        </div>
+      <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-stretch justify-between gap-12 pt-20">
+  
+  {/* 2. Text Section (Left) */}
+  {/* Added flex-1 to take equal width and w-full for mobile stacking */}
+  <div className="flex flex-1 flex-col items-center justify-center w-full">
+    <Text />
+    
+       <Button />
+   
+    <SocialLinks />
+  </div>
 
-          {/* 3. Image Section (Right) */}
-          <ImageSection/>
-      </div>
+  {/* 3. Image Section (Right) */}
+  {/* Added flex-1 and bg-white. items-stretch on the parent ensures this matches the height of the left div */}
+  <div className="flex-1 w-full flex justify-center items-start">
+    <ImageSection />
+  </div>
+
+</div>
 
       {/* 4. Skills Ticker (Bottom) */}
       <div className="w-full border-t border-gray-800 bg-gray-900/50 backdrop-blur-sm mt-20 py-6">

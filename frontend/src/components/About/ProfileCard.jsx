@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaLaptopCode, FaGraduationCap, FaHandsHelping } from 'react-icons/fa';
 import StatItem from './StatItem'; // Import the reusable stat item
-import profileImage from '/assets/yami.jpeg'; 
+import profileImage from '/assets/utkarsh.jpeg'; 
 
 export default function ProfileCard() {
     return (
