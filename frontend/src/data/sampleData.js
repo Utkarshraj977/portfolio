@@ -16,7 +16,7 @@ Implemented real-time messaging and event synchronization using Socket.IO with R
 
 Built a peer-to-peer WebRTC meeting system using simple-peer for low-latency video streaming. Added role-based access control (admin, manager, member) and workspace navigation for structured team collaboration. Focused on scalable backend design, optimized performance, and clean modular architecture suitable for production-level deployment.`,
 image: collabX,
-  live_link: 'https://collabx-frontend-qt9d.onrender.com/',
+  live_link: 'https://collabx.site',
   github: 'https://github.com/Utkarshraj977/collabX'
 },
   {
