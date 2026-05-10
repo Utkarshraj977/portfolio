@@ -7,16 +7,14 @@ import graminvikasportal from "/assets/Gramin-vikas-portal.png";
 import collabX from "/assets/collabX.png";
 
 export const projects = [
-  {
+{
   id: '1',
   title: 'collabX',
-description: `Developed a full-stack real-time collaboration platform that enables teams to communicate, manage tasks, and conduct video meetings within structured workspaces and channels. The system integrates live chat, task tracking, GitHub panels, and WebRTC-based video conferencing to provide a unified collaboration environment.
+  description: `Developed a full-stack real-time collaboration platform that unifies live chat, task management, GitHub integration, and video meetings within structured, role-based workspaces. Engineered real-time event synchronization using Socket.IO and Redis, alongside a peer-to-peer WebRTC meeting system (simple-peer) for low-latency video streaming. Designed a highly responsive frontend using React, Tailwind CSS, and Redux for centralized state management.
 
-Implemented real-time messaging and event synchronization using Socket.IO with Redis as a message broker and scaling layer to support efficient multi-user communication. Designed the frontend using React and Tailwind CSS with Redux for centralized state management, ensuring predictable data flow and maintainable UI architecture.
-
-Built a peer-to-peer WebRTC meeting system using simple-peer for low-latency video streaming. Added role-based access control (admin, manager, member) and workspace navigation for structured team collaboration. Focused on scalable backend design, optimized performance, and clean modular architecture suitable for production-level deployment.`,
-image: collabX,
-  live_link: 'https://collabx.site',
+Architected and deployed a production-grade cloud infrastructure on AWS. Containerized the backend using Docker and hosted it on an Amazon EC2 instance, configuring Nginx as a reverse proxy to handle secure CORS communication and SPA routing. Deployed the frontend via AWS Amplify with automated CI/CD pipelines and managed SSL (HTTPS). Orchestrated the domain and DNS management by migrating from GoDaddy to Amazon Route 53, using custom nameservers and Alias records to ensure seamless, scalable routing.`,
+  image: collabX,
+  live_link: 'https://www.collabx.site',
   github: 'https://github.com/Utkarshraj977/collabX'
 },
   {
