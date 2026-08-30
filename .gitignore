@@ -10,3 +10,5 @@ coverage/
 .vscode/
 .idea/
 .DS_Store
+backend/public/temp/*
+!backend/public/temp/.gitkeep
